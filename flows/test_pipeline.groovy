@@ -1,4 +1,3 @@
-@Library('test-cj') import org.*
 import groovy.json.JsonOutput
 import java.lang.reflect.Type
 
@@ -32,9 +31,6 @@ def pipeline_json = [
         Test_Step_1:[index:2, status:"nu"],
         Test_Step_2:[index:3, status:"nu"]
 ]
-
-//def fleets_choice=Fleet.Fleets.CHOICES
-def fleet=new Fleets()
 
 pipeline {
     agent any
