@@ -43,7 +43,6 @@ pipeline {
         stage('Write_Pipeline_Json') {
             steps {
                 script {
-                    echo "${fleet.CHOICES}"
                     if (!check_status("/tmp/${params.job_id}_Pipeline", "Write_Pipeline_Json", "status")) {
                         try {
 //                            def pipeline_json_file = readJSON file: '/tmp/Pipeline_Template'
