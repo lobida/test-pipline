@@ -74,7 +74,7 @@ pipeline {
             steps {
                 script{
                     if (!check_status("/tmp/${params.job_id}_Pipeline", "Test_Step_1", "status")) {
-                        def _result = build job: 'test_step_1/master',
+                        def _result = build job: 'jay_test_step_1/master',
                                 parameters: [
                                         [
                                                 $class: 'StringParameterValue',
@@ -106,7 +106,7 @@ pipeline {
             steps {
                 script {
                     if (!check_status("/tmp/${params.job_id}_Pipeline", "Test_Step_2", "status")) {
-                        def _result = build job: 'test_step_2/master',
+                        def _result = build job: 'jay_test_step_2/master',
                                 parameters: [
                                         [
                                                 $class: 'StringParameterValue',
@@ -128,9 +128,6 @@ pipeline {
                     else {
                         echo " skip Test_Step_2"
                     }
-                }
-                script {
-                    sh 'cd /test_step2'
                 }
 
             }
