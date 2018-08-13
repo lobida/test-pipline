@@ -2,12 +2,15 @@ import groovy.json.JsonOutput
 import java.lang.reflect.Type
 
 def check_status(file,key1,key2){
+    // no status file; skip; this is a new build
     if (!fileExists(file)) {return false}
+    // if status file is success, return true
     def check_file_json = readJSON file: file
     echo "${check_file_json[key1][key2]}"
     if (check_file_json[key1][key2] == 'SUCCESS'){
         return true
     }
+    // if status file is not success, return false
     return false
 }
 def write_pipeline_file(_file,_key1,_key2,_value){
@@ -125,6 +128,9 @@ pipeline {
                     else {
                         echo " skip Test_Step_2"
                     }
+                }
+                script {
+                    sh 'cd /test_step2'
                 }
 
             }
